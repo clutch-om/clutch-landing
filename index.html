@@ -5,29 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>CLUTCH | SYSTEM_INIT</title>
     <style>
+        /* THE VAULT - PITCH BLACK */
         body, html { 
             margin: 0; padding: 0; width: 100%; height: 100%; 
-            background: #fff; font-family: 'Courier New', Courier, monospace; 
-            overflow: hidden;
+            background: #000; font-family: 'Courier New', Courier, monospace; 
+            overflow: hidden; color: #fff;
         }
         
+        /* YOUR LOGO - CENTERED */
         .background {
             position: fixed; width: 100vw; height: 100vh;
             background: url('background.jpg') no-repeat center center;
-            background-size: cover;
+            background-size: 60%; /* Adjust this % to make logo bigger or smaller */
             z-index: 1;
         }
 
         .container { 
             position: relative; z-index: 3; 
             display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; /* Centered layout */
+            align-items: center; justify-content: center; 
             height: 100vh;
         }
 
-        /* This wrapper handles the distance from the logo */
+        /* AUDIT BOX - SITTING RIGHT BELOW LOGO */
         .audit-box {
-            margin-top: 180px; /* Adjust this number to move it closer/further from logo */
+            margin-top: 220px; /* Adjust this to move the input closer to the logo */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -35,15 +37,14 @@
         }
 
         .terminal-text { 
-            font-weight: bold; letter-spacing: 4px; 
-            margin-bottom: 10px; font-size: 1.3rem; 
-            color: #000; 
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: bold; letter-spacing: 6px; 
+            margin-bottom: 15px; font-size: 1.4rem; 
+            color: #fff; 
         }
         
         .input-line {
-            background: rgba(255,255,255,0.95); border: none; 
-            border-bottom: 3px solid #000; color: #000; 
+            background: transparent; border: none; 
+            border-bottom: 2px solid #fff; color: #fff; 
             font-size: 1.2rem; text-align: center;
             width: 80%; max-width: 300px; outline: none;
             text-transform: uppercase; padding: 12px 0;
@@ -51,18 +52,18 @@
         }
 
         button { 
-            background: #000; color: #fff; border: none; 
-            padding: 18px 0; margin-top: 20px; 
+            background: #fff; color: #000; border: none; 
+            padding: 18px 0; margin-top: 25px; 
             font-weight: bold; cursor: pointer; letter-spacing: 5px;
             width: 80%; max-width: 300px;
             text-transform: uppercase;
         }
 
-        /* MOBILE FIX: Move it UP so the keyboard doesn't hide it */
+        /* MOBILE OPTIMIZATION - PREVENTS KEYBOARD COVERAGE */
         @media (max-width: 768px) {
-            .container { justify-content: flex-start; padding-top: 20vh; }
-            .audit-box { margin-top: 100px; } /* Closer to logo on small screens */
-            .terminal-text { font-size: 1.1rem; }
+            .container { justify-content: flex-start; padding-top: 15vh; }
+            .background { background-size: 80%; } /* Makes logo bigger on phones */
+            .audit-box { margin-top: 140px; }
         }
     </style>
 </head>
@@ -72,7 +73,7 @@
 
     <div class="container">
         <div class="audit-box">
-            <div id="status" class="terminal-text">ENTER_ID_</div>
+            <div id="status" class="terminal-text">ENTER_ID</div>
             
             <form id="clutchForm" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe">
                 <input type="email" name="entry.123456" class="input-line" placeholder="..." required>
@@ -96,7 +97,7 @@
         function showSuccess() {
             form.style.display = 'none';
             statusText.innerHTML = "ID_ACCEPTED";
-            statusText.style.color = "#000";
+            statusText.style.color = "#fff";
         }
     </script>
 
